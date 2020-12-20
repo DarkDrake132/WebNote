@@ -19,9 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.engine('handlebars', handlebars({
-  layoutsDir: __dirname + '/views/layouts',
-  }));
 
 app.use('/', usersRouter);
 app.use('/users', usersRouter);
