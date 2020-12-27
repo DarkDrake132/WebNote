@@ -14,4 +14,9 @@ router.get('/sign-up', (req, res) => {
   res.render('user/signup', {layout : 'layouts/user'});
 });
 
+router.post('/sign-up/register', (req, res) => {
+  res.send('oke');
+});
+
+
 module.exports = router;
