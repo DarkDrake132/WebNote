@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const loginController = require('../controllers/AccountController/loginController');
-const signinController = require('../controllers/AccountController/signinController');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -15,7 +15,5 @@ router.get('/login', (req, res) => {
 router.get('/sign-up', (req, res) => {
   res.render('user/signup', null);
 });
-
-router.post('/sign-up/register', signinController.Register);
 
 module.exports = router;
