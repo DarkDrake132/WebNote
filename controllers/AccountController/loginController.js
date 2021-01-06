@@ -6,8 +6,7 @@ exports.getLogin = (req, res, next) => {
     if (!req.isAuthenticated()) {
         res.render("user/login", {
             title: "Đăng nhập",
-            message: message,
-            user: req.user,
+            message: message
         });
     } else {
         res.redirect("/");
