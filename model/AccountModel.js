@@ -1,7 +1,7 @@
 const {db} = require('../database/db');
 // const { ObjectId} = require('mongodb');
 // const passport = require('passport');
-// const passwordHash = require('password-hash');
+const passwordHash = require('password-hash');
 // const { Passport } = require('passport');
 // var generator = require('generate-password');
 // const nodemailer = require('nodemailer');

@@ -8,12 +8,11 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/login', (req, res) => {
-  res.render('user/login', null);
-});
+router.get('/login', loginController.getLogin);
 
 router.get('/sign-up', (req, res) => {
   res.render('user/signup', null);
 });
 
+router.post('/login', loginController.PostLogin);
 module.exports = router;
