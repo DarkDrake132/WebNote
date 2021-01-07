@@ -8,5 +8,5 @@ exports.Register = (req, res) => {
     //let phone = req.body.phone;
     let password_hashed = passwordHash.generate(password);
     AccountModel.CreateUserAccount(username, email, password_hashed);
-    res.redirect('/users/login');
+    res.redirect('/login');
 }

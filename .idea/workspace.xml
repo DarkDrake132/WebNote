@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4e52662-c4ed-4577-8093-5fe4fb349977" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AccountController/loginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AccountController/loginController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/AccountModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/AccountModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AccountController/signinController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AccountController/signinController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/signup.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +62,7 @@
       <workItem from="1609831721342" duration="3400000" />
       <workItem from="1609853251342" duration="11511000" />
       <workItem from="1609898594993" duration="3536000" />
+      <workItem from="1609993832524" duration="571000" />
     </task>
     <servers />
   </component>
@@ -83,17 +80,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/config/passport.js</url>
-          <line>39</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
