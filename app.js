@@ -11,6 +11,7 @@ var flash = require('connect-flash');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signUpRouter = require('./routes/AccountRoute');
+var groupRouter = require('./routes/GroupRoute');
 
 require('./database/db');
 
@@ -51,6 +52,7 @@ app.use(indexRouter);
 app.use(usersRouter);
 app.use(signUpRouter);
 app.use('/sign-up', signUpRouter);
+app.use('/group', groupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
