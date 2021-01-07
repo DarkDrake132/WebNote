@@ -1,12 +1,23 @@
 const AccountModel = require('../../model/AccountModel');
 var passwordHash = require('password-hash');
+const passport = require('passport');
 
-exports.Register = (req, res) => {
-    let username = req.body.name;
-    let email = req.body.email;
-    let password = req.body.pass;
-    //let phone = req.body.phone;
-    let password_hashed = passwordHash.generate(password);
-    AccountModel.CreateUserAccount(username, email, password_hashed);
-    res.redirect('/login');
+exports.getSignup = (req, res, next) => {
+    const message = req.flash("error")[0];
+    if (!req.isAuthenticated()) {
+        res.render("user/signup", {
+            title: "Đăng ký",
+            message: message
+        });
+    } else {
+        res.redirect("/");
+    }
+};
+
+exports.postSignup = (req, res, next) => {
+    passport.authenticate("local-signup", {
+        successRedirect: "/login",
+        failureRedirect: "/sign-up",
+        failureFlash: true
+    })(req, res, next);
 }

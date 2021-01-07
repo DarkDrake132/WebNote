@@ -45,24 +45,23 @@ module.exports = function(passport) {
 
   passport.use(
     'local-signup',
-    new LocalStrategy({ passReqToCallback: true }, function(req, username, password, done) {
-      User.findOne({ username: username }, function(err, user) {
+    new LocalStrategy({ passReqToCallback: true }, async function(req, username, password, done) {
+      const User = db().collection('user');
+      await User.findOne({ 'username': req.body.username }, async function(err, user) {
         if (err) {
           return done(err);
         }
         if (user) {
-          return done(null, false, {
-            message: 'Tên đăng nhập đã tồn tại!'
-          });
+          return done(null, false, {message:'Tên đăng nhập đã tồn tại!'});
         }
 
-        if (password.length <= 6) {
+        if (req.body.password.length <= 6) {
           return done(null, false, {
             message: 'Mật khẩu phải trên 6 ký tự!'
           });
         }
 
-        if (password !== req.body.password2) {
+        if (req.body.password !== req.body.password2) {
           return done(null, false, {
             message: 'Hai mật khẩu không khớp!'
           });
@@ -73,7 +72,7 @@ module.exports = function(passport) {
             message: 'Địa chỉ email không hợp lệ!'
           });
         }
-        User.findOne({ email: req.body.email }, (err, user) => {
+          await User.findOne({ email: req.body.email }, (err, user) => {
           if (err) {
             return done(err);
           } else if (user) {
@@ -83,19 +82,21 @@ module.exports = function(passport) {
           }
         });
 
-        bcrypt.hash(password, 12).then(hashPassword => {
-          const newUser = new User({
-            username: username,
-            password: hashPassword,
-            email: req.body.email
+        if (req.body.agreeterm !== 'on'){
+            return done(null, false, {
+                message: 'Vui lòng chấp nhận điều khoản để đăng kí'
+            });
+        }
+
+        // save the user
+          let password_hashed = passwordHash.generate(password);
+          User.insertOne({username: req.body.username, password: password_hashed, display_name: "", date_of_birth: "", email: req.body.email, phone: "", avatar: ""});
+          User.findOne({ 'username': req.body.username }, function(err, user) {
+              if (err) return done(err);
+              return done(null, user);
           });
-          // save the user
-          newUser.save(function(err) {
-            if (err) return done(err);
-            return done(null, newUser);
-          });
-        });
       });
+
     })
   );
 };
