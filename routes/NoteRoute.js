@@ -5,5 +5,6 @@ var noteController = require('../controllers/ListNotesController/UpdateListNoteC
 /* GET home page. */
 router.get('/', noteController.List);
 router.get('/add', noteController.Add);
+router.get('/delete', noteController.Delete);
 
 module.exports = router;

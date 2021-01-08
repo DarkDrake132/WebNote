@@ -719,7 +719,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark" style="float: left;">Notes</h1>
             <form method="GET" action="/notes/add">
-                <button type="submit" class="btn btn-warning text-dark" style="float: right;">Add Note</button>
+                <button type="submit" class="btn btn-warning text-dark" style="float: right;"><i class="fas fa-plus"></i></button>
             </form>
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -743,15 +743,18 @@
                 {{#each notes}}
                 <div class="card card-outline card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">{{title}}</h3>
+                        <h3 contenteditable="true" class="card-title" style="font-weight: bold;">{{title}}</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                            <form method="GET" action="/notes/delete">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-save"></i></button>
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                              <button name="noteID" type="submit" class="btn btn-tool" value={{noteID}}><i class="fas fa-times"></i></button>
+                            </form>
                         </div>
                         <!-- /.card-tools -->
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body" style="display: block;">
+                    <div contenteditable="true" class="card-body" style="display: block;">
                         {{content}}
                     </div>
                     <!-- /.card-body -->
@@ -761,32 +764,6 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5">
-
-            <!-- Map card -->
-            <div class="card bg-gradient-primary">
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2"></div>
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3"></div>
-                    <div class="text-white">Sales</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.card -->
-
             <!-- Calendar -->
             <div class="card bg-gradient-success">
               <div class="card-header border-0">
@@ -823,6 +800,31 @@
                 <div id="calendar" style="width: 100%"></div>
               </div>
               <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- Map card -->
+            <div class="card bg-gradient-primary">
+              <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <div id="sparkline-1"></div>
+                    <div class="text-white">Visitors</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-2"></div>
+                    <div class="text-white">Online</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-3"></div>
+                    <div class="text-white">Sales</div>
+                  </div>
+                  <!-- ./col -->
+                </div>  
+                <!-- /.row -->
+              </div>
             </div>
             <!-- /.card -->
           </section>
