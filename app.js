@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signUpRouter = require('./routes/AccountRoute');
 var groupRouter = require('./routes/GroupRoute');
+var noteRouter = require('./routes/NoteRoute');
 
 require('./database/db');
 
@@ -51,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(indexRouter);
 app.use(usersRouter);
 app.use(signUpRouter);
+app.use('/notes', noteRouter);
 app.use('/group', groupRouter);
 
 // catch 404 and forward to error handler
