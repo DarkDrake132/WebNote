@@ -23,8 +23,9 @@ exports.RemoveMember = (req, res) => {
 }
 
 
-exports.ViewGroup = (req, res) => {
-
+exports.ViewGroup = async(req, res) => {
+    let objectRet = await GroupModel.GetAllGroupFromUser(req.user._id);
+    res.render('group/groupView', {group: objectRet});
 }
 
 exports.DeleteGroup = (req, res) => {

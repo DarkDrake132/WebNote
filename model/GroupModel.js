@@ -45,5 +45,25 @@ exports.DeleteGroup = async(idGroup) => {
 }
 
 exports.GetAllGroupFromUser = async(id) => {
-
+    const groupDatabase = db().collection('group');
+    let arrGroup = await db().collection('participation').find({member_id: id}).toArray();
+    let arrGroupFull = [];
+    var i;
+    for(i = 0; i < arrGroup.length; i++)
+    {
+        let group = await groupDatabase.findOne({_id: arrGroup[i].groupId});
+        let groupMember = await db().collection('participation').find({groupId: arrGroup[i].groupId}).toArray();
+        let MemberArr = [];
+        var j;
+        for(j = 0; j < groupMember.length; j++)
+        {
+            let user = await db().collection('user').findOne({_id: groupMember[j].member_id});
+            MemberArr.push(user);
+        }
+        arrGroupFull.push({
+            group,
+            member: MemberArr
+        });
+    }
+    return arrGroupFull;
 }
