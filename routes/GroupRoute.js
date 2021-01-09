@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+var GroupModel = require('../model/GroupModel');
+var GroupController = require('../controllers/GroupController/UpdateGroupController');
+
 router.get('/', (req, res) => {
     if(!req.user){
         res.redirect('/login');
     }
+    let = GroupObj = GroupModel;
     res.render('Group/groupView', null);
 });
 
@@ -14,6 +18,8 @@ router.get('/add', (req, res) => {
     }
     res.render('Group/groupAdd', null);
 });
+
+router.post('/add/submit', GroupController.CreateGroup);
 
 router.get('/edit', (req, res) => {
     if(!req.user){

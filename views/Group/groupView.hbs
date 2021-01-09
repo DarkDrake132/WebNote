@@ -759,7 +759,67 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
+                {{#each group}}
+                <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              AdminLTE v3
+                          </a>
+                          <br/>
+                          <small>
+                              Created {{date}}
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                            {{#each member}}
+                              <li class="list-inline-item">
+                                  <img alt="{{name}}" class="table-avatar" src="{{avatar}}">
+                              </li>
+                            {{/each}}
+                              {{!-- <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../dist/img/avatar04.png">
+                              </li>
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../dist/img/avatar5.png">
+                              </li> --}}
+                          </ul>
+                      </td>
+                      <td class="project_progress">
+                          <div class="progress progress-sm">
+                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="87" aria-volumemin="0" aria-volumemax="100" style="width: 87%">
+                              </div>
+                          </div>
+                          <small>
+                              87% Complete
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Success</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="group/detail?groupId={{_id}}">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a>
+                          <a class="btn btn-info btn-sm" href="group/edit?groupId={{_id}}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="group/delete?groupId={{_id}}">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                      </td>
+                  </tr>
+                {{/each}}
+                  {{!-- <tr>
                       <td>
                           #
                       </td>
@@ -1268,7 +1328,7 @@
                               Delete
                           </a>
                       </td>
-                  </tr>
+                  </tr> --}}
               </tbody>
           </table>
         </div>
