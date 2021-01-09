@@ -1,10 +1,10 @@
 const GroupModel = require('../../model/GroupModel');
 
-exports.CreateGroup = (req, res) => {
+exports.CreateGroup = async(req, res) => {
     let idUser = req.user._id;
     let groupName = req.body.inputName;
     let message = req.body.inputDescription;
-    GroupModel.CreateGroup(idUser, groupName, message);
+    await GroupModel.CreateGroup(idUser, groupName, message);
     res.redirect('/group');
 }
 
@@ -25,11 +25,12 @@ exports.RemoveMember = (req, res) => {
 
 exports.ViewGroup = async(req, res) => {
     let objectRet = await GroupModel.GetAllGroupFromUser(req.user._id);
+    objectRet.forEach(item => console.log(item));
     res.render('group/groupView', {group: objectRet});
 }
 
-exports.DeleteGroup = (req, res) => {
+exports.DeleteGroup = async(req, res) => {
     let idGroup = req.query.groupId;
-    GroupModel.DeleteGroup(idGroup);
+    await GroupModel.DeleteGroup(idGroup);
     res.redirect('/group');
 }

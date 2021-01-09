@@ -766,11 +766,11 @@
                       </td>
                       <td>
                           <a>
-                              AdminLTE v3
+                              {{group.groupName}}
                           </a>
                           <br/>
                           <small>
-                              Created {{group.date}}
+                              Created {{group.founding_date}}
                           </small>
                       </td>
                       <td>
@@ -801,17 +801,17 @@
                           <span class="badge badge-success">Success</span>
                       </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="group/detail?groupId={{_id}}">
+                          <a class="btn btn-primary btn-sm" href="group/detail?groupId={{group._id}}">
                               <i class="fas fa-folder">
                               </i>
                               View
                           </a>
-                          <a class="btn btn-info btn-sm" href="group/edit?groupId={{_id}}">
+                          <a class="btn btn-info btn-sm" href="group/edit?groupId={{group._id}}">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="group/delete?groupId={{_id}}">
+                          <a class="btn btn-danger btn-sm" href="group/delete?groupId={{group._id}}">
                               <i class="fas fa-trash">
                               </i>
                               Delete

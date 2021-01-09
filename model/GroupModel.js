@@ -18,7 +18,7 @@ exports.CreateGroup = async(id, name, message) => {
     const participantDatabase = db().collection('participation');  
     
     await participantDatabase.insert({groupId: groupId, member_id: ObjectId(id)});
-    return true;
+    return 1;
 }
 
 exports.AddMember = async(name) => {
@@ -26,7 +26,7 @@ exports.AddMember = async(name) => {
     let member = userDatabase.findOne({username: name})
     const participantDatabase = db().collection('participation');
     await participantDatabase.insert({member_id: member._id});
-    return true;
+    return 1;
 }
 
 exports.RemoveMember = async(name) => {
@@ -34,14 +34,14 @@ exports.RemoveMember = async(name) => {
     let member = userDatabase.findOne({username: name})
     const participantDatabase = db().collection('participation');
     await participantDatabase.deleteOne({member_id: member._id});
-    return true;
+    return 1;
 }
 exports.DeleteGroup = async(idGroup) => {
     const participationDatabase = db().collection('participation');
-    await participationDatabase.deleteMany({_id: ObjectId(idGroup)});
+    await participationDatabase.deleteMany({groupId: ObjectId(idGroup)});
     const groupDatabase = db().collection('group');
     await groupDatabase.deleteOne({_id: ObjectId(idGroup)});
-    return true;
+    return 1;
 }
 
 exports.GetAllGroupFromUser = async(id) => {
