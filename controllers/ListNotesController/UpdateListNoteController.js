@@ -10,10 +10,7 @@ exports.Add = async(req, res) => {
     res.redirect('/notes');
 }
 
-exports.Modified = async(req, res, next) => {
-    console.log(req.query.noteID[0]);
-    var tmp = "noteTitle" + 3;
-    var tmp1 = req.query.tmp;
-    console.log(tmp1);
+exports.Delete = async(req, res, next) => {
+    await noteModel.deleteNote(req.user._id, req.body.noteID)
     res.redirect('/notes')
 }

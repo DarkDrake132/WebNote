@@ -79,23 +79,13 @@ function ChangeImage(image_link){
     image.src = image_link;
 }
 
-
-function PassData(){
-    var temp = document.getElementsByName('noteID[]');
-    for (i = 0; i < temp.length; i++)
-    {
-        var idContent = "content" + temp[i].value;
-        var content = document.getElementById(idContent).textContent;
-        var idNoteContent = "noteContent" + temp[i].value;
-        var noteContent = document.getElementsByName(idNoteContent);
-        noteContent.value = content;
-
-        var idTitle = "title" + temp[i].value;
-        var title = document.getElementById(idTitle).textContent;
-        var idNoteTitle = "noteTitle" + temp[i].value;
-        var noteTitle = document.getElementsByName(idNoteTitle);
-        noteTitle.value = title;
-    }
-    var tmp = document.getElementsByName('noteTitle3').value;
-    alert(tmp);
+function saveData(idNote){
+    var title = document.getElementById('title' + idNote).textContent;
+    var content = document.getElementById('content' + idNote).textContent;
+    $.getJSON('/api/savedata/save?noteID=' + idNote + '&title=' + title + '&content=' + content, function(data){
+        if(data)
+        {
+            alert("Saved");
+        }
+    });
 }

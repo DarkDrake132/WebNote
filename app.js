@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var signUpRouter = require('./routes/AccountRoute');
 var groupRouter = require('./routes/GroupRoute');
 var noteRouter = require('./routes/NoteRoute');
+var apiSaveDataRouter = require('./routes/API/SaveDataRoute');
 
 require('./database/db');
 
@@ -54,6 +55,7 @@ app.use(usersRouter);
 app.use(signUpRouter);
 app.use('/notes', noteRouter);
 app.use('/group', groupRouter);
+app.use('/api/savedata', apiSaveDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

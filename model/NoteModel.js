@@ -36,3 +36,13 @@ exports.deleteNote = async(idUser, idNote) => {
         {$pull: {noteList: {noteID: parseInt(idNote)}}}
         );
 }
+
+exports.saveNote = async(idUser, idNote, title, content) => {
+    const ListNoteCollection = db().collection('note');
+    await ListNoteCollection.updateOne(
+        {userID: idUser, "noteList.noteID": parseInt(idNote)},
+        {$set: {"noteList.$.title": title,
+                "noteList.$.content": content}}
+    );
+    return true; 
+}

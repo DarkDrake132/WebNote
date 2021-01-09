@@ -189,15 +189,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="/" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Calendar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="/notes" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Note</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -742,13 +742,12 @@
           <section class="col-lg-7">
                 {{#each notes}}
                 <div class="card card-outline card-warning">
-                  <form method="POST" action="/notes/modified?noteID={{noteID}}" onsubmit="PassData()">
+                  <form method="POST" action="/notes/delete" onsubmit="PassData()">
                     <div class="card-header">
                         <h3 id="title{{noteID}}" contenteditable="true" class="card-title" style="font-weight: bold;">{{title}}</h3>
                         <div class="card-tools">
-                            <button name="noteTitle{{noteID}}" type="submit" class="btn btn-tool" value={{title}}><i class="fas fa-save"></i></button>
-                            <button name="noteContent{{noteID}}" type="button" class="btn btn-tool" value={{content}} data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            <button name="noteID[]" type="submit" class="btn btn-tool" value={{noteID}}><i class="fas fa-times"></i></button>
+                            <button type="button" class="btn btn-tool" onclick="saveData({{noteID}})"><i class="fas fa-save"></i></button>
+                            <button name="noteID" type="submit" class="btn btn-tool" value={{noteID}}><i class="fas fa-times"></i></button>
                         </div>
                         <!-- /.card-tools -->
                     </div>
