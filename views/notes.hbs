@@ -742,21 +742,19 @@
           <section class="col-lg-7">
                 {{#each notes}}
                 <div class="card card-outline card-warning">
+                  <form method="POST" action="/notes/modified?noteID={{noteID}}" onsubmit="PassData()">
                     <div class="card-header">
-                        <h3 contenteditable="true" class="card-title" style="font-weight: bold;">{{title}}</h3>
+                        <h3 id="title{{noteID}}" contenteditable="true" class="card-title" style="font-weight: bold;">{{title}}</h3>
                         <div class="card-tools">
-                            <form method="GET" action="/notes/delete">
-                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-save"></i></button>
-                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                              <button name="noteID" type="submit" class="btn btn-tool" value={{noteID}}><i class="fas fa-times"></i></button>
-                            </form>
+                            <button name="noteTitle{{noteID}}" type="submit" class="btn btn-tool" value={{title}}><i class="fas fa-save"></i></button>
+                            <button name="noteContent{{noteID}}" type="button" class="btn btn-tool" value={{content}} data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                            <button name="noteID[]" type="submit" class="btn btn-tool" value={{noteID}}><i class="fas fa-times"></i></button>
                         </div>
                         <!-- /.card-tools -->
                     </div>
                     <!-- /.card-header -->
-                    <div contenteditable="true" class="card-body" style="display: block;">
-                        {{content}}
-                    </div>
+                    <div id="content{{noteID}}" contenteditable="true" class="card-body" style="display: block;">{{content}}</div>
+                  </form>
                     <!-- /.card-body -->
                 </div>
                 {{/each}}
@@ -851,7 +849,6 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -886,5 +883,7 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<!-- MainJS -->
+<script src="../javascripts/js/main.js"></script>
 </body>
 </html>

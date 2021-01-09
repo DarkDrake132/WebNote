@@ -30,7 +30,6 @@ exports.addNote = async(idUser) => {
 }
 
 exports.deleteNote = async(idUser, idNote) => {
-    console.log(idNote);
     const ListNoteCollection = db().collection('note');
     await ListNoteCollection.updateOne(
         {userID: idUser},
