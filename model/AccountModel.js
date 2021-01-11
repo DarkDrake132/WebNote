@@ -11,3 +11,9 @@ exports.CreateUserAccount = async (username, email, password_hashed) => {
     await userDatabase.insert({username: username, password: password_hashed, display_name: "", date_of_birth: "", email: email, phone: "", avatar: ""});
     return 1;
 }
+
+exports.updateEmailPhoneAndImage = async (user) => {
+    const userCollection = db().collection("user");
+    await userCollection.updateOne({_id: user._id}, {$set: {email: user.email, phone: user.phone, avatar: user.avatar}});
+    return 1;
+}

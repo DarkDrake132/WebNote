@@ -25,7 +25,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{user.image}}">
+                  <img alt="Image placeholder" src="{{user.avatar}}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">{{user.username}}</span>
@@ -86,7 +86,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img id="image-info" src="{{user.image}}" class="rounded-circle">
+                    <img id="image-info" src="{{user.avatar}}" class="rounded-circle">
                   </a>
                 </div>
               </div>
@@ -144,7 +144,7 @@
                     <h3 class="mb-0">My account</h3>
                     </div>
                     <div class="col-4 text-right">
-                      <form action="/user/change-info" method="POST">
+                      <form action="/change-info" method="POST">
                         <button type="submit" class="btn btn-sm btn-primary">
                             Save change
                         </button>

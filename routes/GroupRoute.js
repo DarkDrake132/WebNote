@@ -21,12 +21,11 @@ router.get('/edit', (req, res) => {
     res.render('Group/groupAdd', null);
 });
 
-router.get('/detail', (req, res) => {
-    if(!req.user){
-        res.redirect('/login');
-    }
-    res.render('Group/groupDetail', null);
-});
+router.get('/detail', GroupController.GetGroup);
+
+router.get('/detail/remove-member', GroupController.RemoveMember);
+
+router.post('/detail/add-member', GroupController.AddMember);
 
 router.get('/delete', GroupController.DeleteGroup);
 

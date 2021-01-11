@@ -17,4 +17,6 @@ router.get('/login', loginController.getLogin);
 router.get('/sign-up', signinController.getSignup);
 
 router.post('/login', loginController.PostLogin);
+
+router.post('/change-info', userController.updateEmailPhoneAndImage);
 module.exports = router;

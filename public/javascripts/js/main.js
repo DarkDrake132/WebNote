@@ -74,6 +74,15 @@ function CheckValidUser(){
     return false;
 }
 
+function checkifEmpty(){
+    var member = document.getElementById('nameMember').value;
+    if(member != '')
+    {
+        return true;
+    }
+    return false
+}
+
 function ChangeImage(image_link){
     var image = document.getElementById('image-info');
     image.src = image_link;

@@ -8,24 +8,41 @@ exports.CreateGroup = async(req, res) => {
     res.redirect('/group');
 }
 
-exports.AddMember = (req, res) => {
-    let name = req.query.namne;
+exports.GetGroup = async(req, res) => {
+    if(!req.user)
+    {
+        res.redirect('/login');
+    }
     let idGroup = req.query.groupId;
-    GroupModel.AddMember(name);
-    res.redirect('/group/dedtail?groupId=' + idGroup);
+    let GroupRet = await GroupModel.GetGroup(idGroup, req.user._id);
+    if(!GroupRet)
+    {
+        res.redirect('/group');
+    }
+    res.render('group/groupDetail', GroupRet);
+}
+
+exports.AddMember = (req, res) => {
+    let name = req.body.nameMember;
+    let idGroup = req.body.idGroup;
+    GroupModel.AddMember(idGroup, name);
+    res.redirect('/group/detail?groupId=' + idGroup);
 }
 
 exports.RemoveMember = (req, res) => {
-    let name = req.query.namne;
+    let id = req.query.id;
     let idGroup = req.query.groupId;
-    GroupModel.RemoveMember(name);
-    res.redirect('/group/dedtail?groupId=' + idGroup);
+    GroupModel.RemoveMember(idGroup, id);
+    res.redirect('/group/detail?groupId=' + idGroup);
 }
 
 
 exports.ViewGroup = async(req, res) => {
+    if(!req.user)
+    {
+        res.redirect('/login');
+    }
     let objectRet = await GroupModel.GetAllGroupFromUser(req.user._id);
-    objectRet.forEach(item => console.log(item));
     res.render('group/groupView', {group: objectRet});
 }
 
