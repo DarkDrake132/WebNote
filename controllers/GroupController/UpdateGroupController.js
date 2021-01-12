@@ -13,6 +13,7 @@ exports.GetGroup = async(req, res) => {
     {
         res.redirect('/login');
     }
+    console.log(req.user);
     let idGroup = req.query.groupId;
     let GroupRet = await GroupModel.GetGroup(idGroup, req.user._id);
     if(!GroupRet)
