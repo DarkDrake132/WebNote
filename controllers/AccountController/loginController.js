@@ -20,3 +20,13 @@ exports.PostLogin = (req, res, next) => {
         failureFlash: true
     })(req, res, next);
 };
+
+exports.logOut = async(req, res, next) => {
+    req.logout();
+    res.redirect('/login');
+}
+
+exports.logOut = async(req, res, next) => {
+    req.logout();
+    res.redirect('/login');
+}
