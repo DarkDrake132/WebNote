@@ -155,15 +155,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
+      <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{req.user.avatar}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="/profile" class="d-block">{{req.user.username}}</a>
         </div>
       </div>
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -489,25 +490,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/projects.html" class="nav-link">
+                <a href="/group" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Projects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/project-add.html" class="nav-link">
+                <a href="/group/add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Add</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/project-edit.html" class="nav-link">
+                <a href="/group/edit?groupId={{group._id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Edit</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/project-detail.html" class="nav-link active">
+                <a href="/group/detail?groupId={{group._id}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Detail</p>
                 </a>
@@ -767,8 +768,27 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <h4>Recent Activity</h4>
-                    <div class="post">
+                  <h4>Member</h4>
+                    {{#each member}}
+                      <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="{{avatar}}" alt="{{username}}">
+                        <span class="username">
+                          <a>{{username}}</a>
+                        </span>
+                        <span class="description">{{display_name}}</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        {{email}}
+                      </p>
+
+                      <p>
+                        <a href="/group/detail/remove-member?id={{_id}}&groupId={{../group._id}}" class="link-black text-sm"><i class="fas fa-link mr-1"></i>Remove member</a>
+                      </p>
+                    </div>
+                    {{/each}}
+                    {{!-- <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="../dist/img/user1-128x128.jpg" alt="user image">
                         <span class="username">
@@ -825,13 +845,13 @@
                       <p>
                         <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v1</a>
                       </p>
-                    </div>
+                    </div> --}}
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
-              <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
+              <h3 class="text-primary"><i class="fas fa-paint-brush"></i>Group name: {{group.groupName}}</h3>
+              <p class="text-muted">{{group.description}}</p>
               <br>
               <div class="text-muted">
                 <p class="text-sm">Client Company
@@ -861,8 +881,12 @@
                 </li>
               </ul>
               <div class="text-center mt-5 mb-3">
-                <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                <form action="/group/detail/add-member" method="POST">
+                  <input class="form-control form-control-navbar" type="text" name="idGroup" id="idGroup" aria-label="Search" value="{{group._id}}" style="visibility: hidden;">
+                  <input class="form-control form-control-navbar" type="text" name="nameMember" id="nameMember" placeholder="member name to add" aria-label="Search">
+                  <button type="submit" onclick="return checkifEmpty()"><a class="btn btn-sm btn-primary">Add member</a></button>
+                </form>
+                {{!-- <a href="#" class="btn btn-sm btn-warning">Report contact</a> --}}
               </div>
             </div>
           </div>
@@ -900,5 +924,6 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<script src="/../javascript/js/main.js"></script>
 </body>
 </html>

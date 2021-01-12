@@ -21,21 +21,51 @@ exports.CreateGroup = async(id, name, message) => {
     return 1;
 }
 
-exports.AddMember = async(name) => {
+exports.AddMember =async(idGroup, name) => {
     const userDatabase = db().collection('user');
-    let member = userDatabase.findOne({username: name})
+    let member = await userDatabase.findOne({username: name});
+    if(!member)
+    {
+        return 0;
+    }
     const participantDatabase = db().collection('participation');
-    await participantDatabase.insert({member_id: member._id});
+    let member2 = await participantDatabase.findOne({member_id: member._id});
+    if(member2 != null)
+    {
+        return 0;
+    }
+    await participantDatabase.insert({groupId: ObjectId(idGroup), member_id: member._id});
     return 1;
 }
 
-exports.RemoveMember = async(name) => {
-    const userDatabase = db().collection('user');
-    let member = userDatabase.findOne({username: name})
+exports.RemoveMember = async(idGroup, id) => {
     const participantDatabase = db().collection('participation');
-    await participantDatabase.deleteOne({member_id: member._id});
+    await participantDatabase.deleteOne({groupId: ObjectId(idGroup), member_id: ObjectId(id)});
     return 1;
 }
+
+exports.GetGroup = async(idGroup, id) => {
+    let groupDatabase = await db().collection('group').findOne({_id: ObjectId(idGroup)});
+    let checker = await db().collection('participation').findOne({member_id: id});
+    if(!checker)
+    {
+        return false;
+    }
+    let groupMember = await db().collection('participation').find({groupId: groupDatabase._id}).toArray();
+    let MemberArr = [];
+    var j;
+    for(j = 0; j < groupMember.length; j++)
+    {
+        let user = await db().collection('user').findOne({_id: groupMember[j].member_id});
+        MemberArr.push(user);
+    }
+    let retOb = {
+        group: groupDatabase,
+        member: MemberArr
+    }
+    return retOb;
+}
+
 exports.DeleteGroup = async(idGroup) => {
     const participationDatabase = db().collection('participation');
     await participationDatabase.deleteMany({groupId: ObjectId(idGroup)});
