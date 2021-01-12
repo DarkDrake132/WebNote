@@ -1,6 +1,9 @@
 const noteModel = require('../../model/NoteModel');
 
 exports.List = async(req, res) => {
+    if (!req.user){
+        res.redirect('/login');
+    }
     let listNote = await noteModel.getListNote(req.user._id);
     res.render('notes', {notes: listNote});
 }

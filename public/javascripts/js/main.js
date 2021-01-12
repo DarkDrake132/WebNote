@@ -91,6 +91,14 @@ function ChangeImage(image_link){
 function saveData(idNote){
     var title = document.getElementById('title' + idNote).textContent;
     var content = document.getElementById('content' + idNote).textContent;
+    if (title == ""){
+        title = "empty title";
+        $('#title' + idNote).text(title);
+    }
+    if (content == ""){
+        content = "empty content";
+        $('#content' + idNote).text(content);
+    }
     $.getJSON('/api/savedata/save?noteID=' + idNote + '&title=' + title + '&content=' + content, function(data){
         if(data)
         {
