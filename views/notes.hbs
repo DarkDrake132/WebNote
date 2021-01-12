@@ -742,7 +742,7 @@
           <section class="col-lg-7">
                 {{#each notes}}
                 <div class="card card-outline card-warning">
-                  <form method="POST" action="/notes/delete" onsubmit="PassData()">
+                  <form method="POST" action="/notes/delete">
                     <div class="card-header">
                         <h3 id="title{{noteID}}" contenteditable="true" class="card-title" style="font-weight: bold;">{{title}}</h3>
                         <div class="card-tools">
