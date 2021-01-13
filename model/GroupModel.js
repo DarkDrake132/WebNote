@@ -29,7 +29,7 @@ exports.AddMember =async(idGroup, name) => {
         return 0;
     }
     const participantDatabase = db().collection('participation');
-    let member2 = await participantDatabase.findOne({member_id: member._id});
+    let member2 = await participantDatabase.findOne({groupId: ObjectId(idGroup), member_id: member._id});
     if(member2 != null)
     {
         return 0;
