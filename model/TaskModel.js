@@ -29,7 +29,6 @@ exports.AddTask = async (id, task, type) => {
 exports.GetTasks = async (id) => {
     const taskCollection = db().collection('task');
     let user = await taskCollection.findOne({userid: id});
-        return user.events;
         if (user){
             return user.events;
         }
