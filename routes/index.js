@@ -17,8 +17,10 @@ router.post('/', function(req, res, next) {
   if(!req.user){
     res.redirect('/login');
   }
-  const taskCollection = db().collection('task');
-  taskModel.AddTask(req.user._id, req.body.newevent, req.body.neweventclass)
+  if (req.body.newevent) {
+    const taskCollection = db().collection('task');
+    taskModel.AddTask(req.user._id, req.body.newevent, req.body.neweventclass)
+  }
   res.redirect('back');
 });
 module.exports = router;

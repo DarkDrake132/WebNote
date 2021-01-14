@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4e52662-c4ed-4577-8093-5fe4fb349977" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/TaskModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/TaskModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +65,8 @@
       <workItem from="1610007825068" duration="5153000" />
       <workItem from="1610184367449" duration="311000" />
       <workItem from="1610206358352" duration="5318000" />
+      <workItem from="1610548559641" duration="896000" />
+      <workItem from="1610600928827" duration="2225000" />
     </task>
     <servers />
   </component>
@@ -102,12 +102,6 @@
           <url>file://$PROJECT_DIR$/config/passport.js</url>
           <line>94</line>
           <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/model/TaskModel.js</url>
-          <line>3</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
