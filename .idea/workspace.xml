@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f4e52662-c4ed-4577-8093-5fe4fb349977" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GroupController/UpdateGroupController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupController/UpdateGroupController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/GroupRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/GroupRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Group/groupAdd.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Group/groupAdd.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
       <workItem from="1610184367449" duration="311000" />
       <workItem from="1610206358352" duration="5318000" />
       <workItem from="1610548559641" duration="896000" />
-      <workItem from="1610600928827" duration="2225000" />
+      <workItem from="1610600928827" duration="7582000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,12 @@ router.get('/add', (req, res) => {
     if(!req.user){
         res.redirect('/login');
     }
-    res.render('Group/groupAdd', null);
+    var message = undefined;
+    if (req.session.error){
+        message = req.session.error;
+        req.session.error = undefined;
+    }
+    res.render('Group/groupAdd', {message});
 });
 
 router.post('/add/submit', GroupController.CreateGroup);

@@ -1,11 +1,42 @@
 const GroupModel = require('../../model/GroupModel');
 
 exports.CreateGroup = async(req, res) => {
-    let idUser = req.user._id;
-    let groupName = req.body.inputName;
-    let message = req.body.inputDescription;
-    await GroupModel.CreateGroup(idUser, groupName, message);
-    res.redirect('/group');
+    var message=[];
+    if (req.body.inputName == ""){
+        message.push("Thiếu trường Project Name");
+    }
+     if (req.body.inputDescription == ""){
+        message.push("Thiếu trường Project Description");
+    }
+     if (req.body.inputStatus == undefined){
+        message.push("Thiếu trường Status");
+    }
+     if (req.body.inputClientCompany == ""){
+        message.push("Thiếu trường Client Company");
+    }
+     if (req.body.inputProjectLeader == ""){
+        message.push("Thiếu trường Project Leader");
+    }
+     if (req.body.inputEstimatedBudget == ""){
+        message.push("Thiếu trường Estimated budget");
+    }
+     if (req.body.inputSpentBudget == ""){
+        message.push("Thiếu trường Total amount spent");
+    }
+    if (req.body.inputEstimatedDuration == ""){
+        message.push("Thiếu trường Estimated project duration");
+    }
+    if (message.length == 0) {
+        let idUser = req.user._id;
+        let groupName = req.body.inputName;
+        let message = req.body.inputDescription;
+        await GroupModel.CreateGroup(idUser, groupName, message);
+        res.redirect('/group');
+    }
+    else {
+        req.session.error = message;
+        res.redirect("/group/add");
+    }
 }
 
 exports.GetGroup = async(req, res) => {

@@ -17,6 +17,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Favico -->
   <link rel="icon" href="../images/icon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -235,9 +237,22 @@
             </ol>
           </div>
         </div>
+
       </div><!-- /.container-fluid -->
     </section>
+    <div class="content-error">
+        {{#if message}}
+            {{#each message}}
+                <div
+                        class="error"
+                        style="background-color: #FFCCCC; font-weight: bold; color : rgb(210, 29, 29) "
+                >
+                    {{this}}
+                </div>
+            {{/each}}
+        {{/if}}
 
+    </div>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -251,7 +266,7 @@
                   <i class="fas fa-minus"></i></button>
               </div>
             </div>
-            <form action="/group/add/submit", method="POST">
+              <form action="/group/add/submit", method="POST">
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Project Name</label>
@@ -263,7 +278,7 @@
               </div>
               <div class="form-group">
                 <label for="inputStatus">Status</label>
-                <select class="form-control custom-select">
+                <select class="form-control custom-select" name="inputStatus">
                   <option selected disabled>Select one</option>
                   <option>On Hold</option>
                   <option>Canceled</option>
@@ -272,15 +287,15 @@
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Client Company</label>
-                <input type="text" id="inputClientCompany" class="form-control">
+                <input type="text" id="inputClientCompany" class="form-control" name="inputClientCompany">
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">Project Leader</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
+                <input type="text" id="inputProjectLeader" class="form-control" name="inputProjectLeader">
               </div>
             </div>
             <!-- /.card-body -->
-          </div>
+            </div>
           <!-- /.card -->
         </div>
         <div class="col-md-6">
@@ -296,15 +311,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputEstimatedBudget">Estimated budget</label>
-                <input type="number" id="inputEstimatedBudget" class="form-control">
+                <input type="number" id="inputEstimatedBudget" class="form-control" name="inputEstimatedBudget">
               </div>
               <div class="form-group">
                 <label for="inputSpentBudget">Total amount spent</label>
-                <input type="number" id="inputSpentBudget" class="form-control">
+                <input type="number" id="inputSpentBudget" class="form-control" name="inputSpentBudget">
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Estimated project duration</label>
-                <input type="number" id="inputEstimatedDuration" class="form-control">
+                <input type="number" id="inputEstimatedDuration" class="form-control" name="inputEstimatedDuration">
               </div>
             </div>
             <!-- /.card-body -->
@@ -318,7 +333,6 @@
           <input type="submit" value="Create new Porject" class="btn btn-success float-right">
         </div>
       </div>
-      </form>
     </section>
     <!-- /.content -->
   </div>
