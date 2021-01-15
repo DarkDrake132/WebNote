@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4e52662-c4ed-4577-8093-5fe4fb349977" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/GroupController/UpdateGroupController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupController/UpdateGroupController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/GroupRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/GroupRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Group/groupAdd.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Group/groupAdd.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/passport.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,10 @@
       <workItem from="1610184367449" duration="311000" />
       <workItem from="1610206358352" duration="5318000" />
       <workItem from="1610548559641" duration="896000" />
-      <workItem from="1610600928827" duration="7582000" />
+      <workItem from="1610600928827" duration="8457000" />
+      <workItem from="1610626536593" duration="1721000" />
+      <workItem from="1610642918203" duration="632000" />
+      <workItem from="1610695845190" duration="2611000" />
     </task>
     <servers />
   </component>
@@ -92,18 +93,45 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/config/passport.js</url>
-          <line>95</line>
-          <option name="timeStamp" value="43" />
+          <line>74</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/config/passport.js</url>
-          <line>93</line>
-          <option name="timeStamp" value="45" />
+          <line>69</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/config/passport.js</url>
-          <line>94</line>
-          <option name="timeStamp" value="46" />
+          <line>63</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/config/passport.js</url>
+          <line>70</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/config/passport.js</url>
+          <line>75</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/config/passport.js</url>
+          <line>76</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/config/passport.js</url>
+          <line>78</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

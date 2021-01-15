@@ -80,21 +80,23 @@ module.exports = function(passport) {
               message: 'Địa chỉ email đã tồn tại!'
             });
           }
+          else {
+              if (req.body.agreeterm !== 'on'){
+                  return done(null, false, {
+                      message: 'Vui lòng chấp nhận điều khoản để đăng kí'
+                  });
+              }
+
+              // save the user
+              let password_hashed = passwordHash.generate(password);
+              User.insertOne({username: req.body.username, password: password_hashed, display_name: "", date_of_birth: "", email: req.body.email, phone: "", avatar: ""});
+              User.findOne({ 'username': req.body.username }, function(err, user) {
+                  if (err) return done(err);
+                  return done(null, user);
+              });
+          }
         });
 
-        if (req.body.agreeterm !== 'on'){
-            return done(null, false, {
-                message: 'Vui lòng chấp nhận điều khoản để đăng kí'
-            });
-        }
-
-        // save the user
-          let password_hashed = passwordHash.generate(password);
-          User.insertOne({username: req.body.username, password: password_hashed, display_name: "", date_of_birth: "", email: req.body.email, phone: "", avatar: ""});
-          User.findOne({ 'username': req.body.username }, function(err, user) {
-              if (err) return done(err);
-              return done(null, user);
-          });
       });
 
     })
